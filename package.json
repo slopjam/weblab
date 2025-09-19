@@ -1,0 +1,82 @@
+{
+  "name": "careperf",
+  "version": "2.0.0",
+  "description": "Comprehensive Performance Testing Framework - A robust, automated performance testing suite for web applications with statistical analysis, infrastructure detection, and detailed reporting.",
+  "main": "index.js",
+  "bin": {
+    "perf-cli": "./perf-cli.js"
+  },
+  "scripts": {
+    "test": "node perf-cli.js run --iterations 3 --scenarios cold-start,warm-start",
+    "test:full": "node perf-cli.js run",
+    "test:quick": "node perf-cli.js run --iterations 3 --scenarios cold-start",
+    "example": "node example-usage.js",
+    "compare": "node perf-cli.js compare",
+    "validate": "node perf-cli.js validate",
+    "report": "node perf-cli.js report"
+  },
+  "keywords": [
+    "performance",
+    "testing",
+    "web",
+    "automation",
+    "playwright",
+    "metrics",
+    "benchmarking",
+    "statistics",
+    "cdn",
+    "compression",
+    "monitoring"
+  ],
+  "author": "Performance Testing Framework",
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "playwright": "^1.55.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/username/careperf.git"
+  },
+  "bugs": {
+    "url": "https://github.com/username/careperf/issues"
+  },
+  "homepage": "https://github.com/username/careperf#readme",
+  "files": [
+    "index.js",
+    "perf-suite.js",
+    "perf-cli.js",
+    "metrics-collector.js",
+    "infra-analyzer.js",
+    "compare.js",
+    "validation.js",
+    "scenarios/",
+    "reports/",
+    "example-usage.js",
+    "README.md",
+    "TESTING_TOOL_PLAN.md"
+  ],
+  "performanceTest": {
+    "environments": {
+      "development": {
+        "name": "development",
+        "pageUrl": "https://variant-pete-a--develop--sit.cecm-web.test-web-cloud.siriusxm.com/care/phx/subscribe/checkout/purchase/satellite/organic/new?programcode=MCP5FOR12",
+        "mainJsUrl": "https://variant-pete-a--develop--sit.cecm-web.test-web-cloud.siriusxm.com/care/phx/main.js",
+        "baseUrl": "https://variant-pete-a--develop--sit.cecm-web.test-web-cloud.siriusxm.com"
+      },
+      "production": {
+        "name": "production",
+        "pageUrl": "https://care.siriusxm.com/subscribe/checkout/purchase/satellite/organic/new?programcode=MCP5FOR12",
+        "mainJsUrl": "https://care.siriusxm.com/ngapp/main-GGAVZFWV.js",
+        "baseUrl": "https://care.siriusxm.com"
+      }
+    },
+    "scenarios": ["cold-start", "warm-start", "critical-path", "api-endpoints"],
+    "iterations": 10,
+    "timeout": 30000,
+    "outputDir": "./results"
+  }
+}
