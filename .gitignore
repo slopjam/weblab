@@ -129,6 +129,7 @@ tmp/
 
 # Browser artifacts
 .playwright/
+.playwright-mcp/
 playwright-report/
 test-results/
 

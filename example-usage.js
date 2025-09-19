@@ -10,17 +10,17 @@ async function runComprehensiveExample() {
     // 1. Configure the test suite
     const config = {
       environments: {
-        development: {
-          name: 'development',
-          pageUrl: 'https://variant-pete-a--develop--sit.cecm-web.test-web-cloud.siriusxm.com/care/phx/subscribe/checkout/purchase/satellite/organic/new?programcode=MCP5FOR12',
-          mainJsUrl: 'https://variant-pete-a--develop--sit.cecm-web.test-web-cloud.siriusxm.com/care/phx/main.js',
-          baseUrl: 'https://variant-pete-a--develop--sit.cecm-web.test-web-cloud.siriusxm.com'
+        staging: {
+          name: 'staging',
+          pageUrl: 'https://staging.example.com/app',
+          mainJsUrl: 'https://staging.example.com/assets/main.js',
+          baseUrl: 'https://staging.example.com'
         },
         production: {
           name: 'production',
-          pageUrl: 'https://care.siriusxm.com/subscribe/checkout/purchase/satellite/organic/new?programcode=MCP5FOR12',
-          mainJsUrl: 'https://care.siriusxm.com/ngapp/main-GGAVZFWV.js',
-          baseUrl: 'https://care.siriusxm.com'
+          pageUrl: 'https://www.example.com/app',
+          mainJsUrl: 'https://www.example.com/assets/main-abc123.js',
+          baseUrl: 'https://www.example.com'
         }
       },
       scenarios: ['cold-start', 'warm-start', 'critical-path', 'api-endpoints'],

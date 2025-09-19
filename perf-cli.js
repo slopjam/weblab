@@ -19,20 +19,7 @@ class PerformanceCLI {
     };
 
     this.defaultConfig = {
-      environments: {
-        development: {
-          name: 'development',
-          pageUrl: 'https://variant-pete-a--develop--sit.cecm-web.test-web-cloud.siriusxm.com/care/phx/subscribe/checkout/purchase/satellite/organic/new?programcode=MCP5FOR12',
-          mainJsUrl: 'https://variant-pete-a--develop--sit.cecm-web.test-web-cloud.siriusxm.com/care/phx/main.js',
-          baseUrl: 'https://variant-pete-a--develop--sit.cecm-web.test-web-cloud.siriusxm.com'
-        },
-        production: {
-          name: 'production',
-          pageUrl: 'https://care.siriusxm.com/subscribe/checkout/purchase/satellite/organic/new?programcode=MCP5FOR12',
-          mainJsUrl: 'https://care.siriusxm.com/ngapp/main-GGAVZFWV.js',
-          baseUrl: 'https://care.siriusxm.com'
-        }
-      },
+      environments: {},
       scenarios: ['cold-start', 'warm-start', 'critical-path', 'api-endpoints'],
       iterations: 10,
       outputDir: './results',
@@ -459,12 +446,12 @@ EXIT CODES:
 
   validateConfig(config) {
     if (!config.environments || Object.keys(config.environments).length === 0) {
-      throw new Error('No environments configured');
+      throw new Error('No environments configured. Please create a perf-config.json file or configure environments in package.json');
     }
 
     Object.entries(config.environments).forEach(([name, env]) => {
       if (!env.pageUrl || !env.mainJsUrl) {
-        throw new Error(`Environment '${name}' missing required URLs`);
+        throw new Error(`Environment '${name}' missing required URLs (pageUrl, mainJsUrl)`);
       }
     });
 

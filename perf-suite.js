@@ -25,20 +25,7 @@ class PerformanceTestSuite {
   }
 
   getDefaultEnvironments() {
-    return {
-      development: {
-        name: 'development',
-        pageUrl: 'https://variant-pete-a--develop--sit.cecm-web.test-web-cloud.siriusxm.com/care/phx/subscribe/checkout/purchase/satellite/organic/new?programcode=MCP5FOR12',
-        mainJsUrl: 'https://variant-pete-a--develop--sit.cecm-web.test-web-cloud.siriusxm.com/care/phx/main.js',
-        baseUrl: 'https://variant-pete-a--develop--sit.cecm-web.test-web-cloud.siriusxm.com'
-      },
-      production: {
-        name: 'production',
-        pageUrl: 'https://care.siriusxm.com/subscribe/checkout/purchase/satellite/organic/new?programcode=MCP5FOR12',
-        mainJsUrl: 'https://care.siriusxm.com/ngapp/main-GGAVZFWV.js',
-        baseUrl: 'https://care.siriusxm.com'
-      }
-    };
+    return {};
   }
 
   log(level, message, data = null) {

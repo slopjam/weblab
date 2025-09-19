@@ -36,17 +36,67 @@ chmod +x perf-cli.js
 
 ## 🏃‍♂️ Quick Start
 
+### Configuration
+
+Before running tests, you need to configure your environments. Create a `perf-config.json` file:
+
+```json
+{
+  "environments": {
+    "staging": {
+      "name": "staging",
+      "pageUrl": "https://staging.example.com/app",
+      "mainJsUrl": "https://staging.example.com/assets/main.js",
+      "baseUrl": "https://staging.example.com"
+    },
+    "production": {
+      "name": "production",
+      "pageUrl": "https://www.example.com/app",
+      "mainJsUrl": "https://www.example.com/assets/main-abc123.js",
+      "baseUrl": "https://www.example.com"
+    }
+  },
+  "scenarios": ["cold-start", "warm-start", "critical-path", "api-endpoints"],
+  "iterations": 10,
+  "timeout": 30000,
+  "retryAttempts": 3,
+  "outputDir": "./results"
+}
+```
+
+Alternatively, configure in your `package.json`:
+
+```json
+{
+  "performanceTest": {
+    "environments": {
+      "staging": {
+        "name": "staging",
+        "pageUrl": "https://staging.example.com/app",
+        "mainJsUrl": "https://staging.example.com/assets/main.js",
+        "baseUrl": "https://staging.example.com"
+      }
+    },
+    "scenarios": ["cold-start", "warm-start"],
+    "iterations": 10
+  }
+}
+```
+
 ### Basic Usage
 
 ```bash
-# Run full test suite
+# Run full test suite (requires configuration)
 node perf-cli.js run
+
+# Run with custom config file
+node perf-cli.js run --config my-config.json
 
 # Run specific scenarios
 node perf-cli.js run --scenarios cold-start,warm-start --iterations 5
 
-# Quick test (3 iterations, cold-start only)
-npm run test:quick
+# Quick test (3 iterations, 2 scenarios)
+npm test
 ```
 
 ### Programmatic Usage
